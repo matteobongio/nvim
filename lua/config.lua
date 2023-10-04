@@ -39,7 +39,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 -- line numbers
--- vim.wo.number = true
+vim.wo.number = true
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
