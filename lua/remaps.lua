@@ -73,8 +73,11 @@ end
 
 
 vim.keymap.set('n', '<leader>u', require('undotree').toggle, { noremap = true, silent = true, desc = 'Toggle UndoTree' })
-vim.keymap.set('n', '<leader>f', "<cmd>Ex<cr><esc>", { desc = 'Open File Manager' })
+-- use oil instead
+-- vim.keymap.set('n', '<leader>f', "<cmd>Ex<cr><esc>", { desc = 'Open File Manager' })
+
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+vim.keymap.set("n", "<C-z>", "<CMD>Format<CR>", { desc = "Format Document" })
 
 -- move highlighted Text
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -100,3 +103,6 @@ vim.keymap.set("n", "<leader><S-h>m", function() require("harpoon.ui").toggle_qu
   { desc = "Harpoon Quick Menu" })
 
 vim.keymap.set("n", "<leader><S-h>a", function() require("harpoon.mark").add_file() end, { desc = "Harpoon add file" })
+
+-- oil
+vim.keymap.set("n", "<leader>f", "<CMD>Oil<CR>", { desc = "File Explorer" })
