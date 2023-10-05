@@ -1,4 +1,3 @@
-
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -73,8 +72,8 @@ local function map(mode, lhs, rhs, opts)
 end
 
 
-vim.keymap.set('n', '<leader>u', require('undotree').toggle, { noremap = true, silent = true, desc='Toggle UndoTree' } )
-vim.keymap.set('n', '<leader>f', "<cmd>Ex<cr><esc>", {desc='Open File Manager'})
+vim.keymap.set('n', '<leader>u', require('undotree').toggle, { noremap = true, silent = true, desc = 'Toggle UndoTree' })
+vim.keymap.set('n', '<leader>f', "<cmd>Ex<cr><esc>", { desc = 'Open File Manager' })
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- move highlighted Text
@@ -89,8 +88,15 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- keep copy when replacing
-vim.keymap.set("x", "<leader>p", [["_dP]], {desc = "replace without changing clipboard"})
-vim.keymap.set({"n", "v"}, "<leader>dd", [["_d]], {desc = "delete without yank"})
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "replace without changing clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]], { desc = "delete without yank" })
 
 -- keymap guide
-vim.keymap.set("n", "<leader>k", "<cmd>Telescope keymaps<CR>", {desc = "Telescope [K]eymaps"})
+vim.keymap.set("n", "<leader>k", "<cmd>Telescope keymaps<CR>", { desc = "Telescope [K]eymaps" })
+
+-- harpoon
+-- from the quickmenu, open a file in: a vertical split with control+v, a horizontal split with control+x, a new tab with control+t
+vim.keymap.set("n", "<leader><S-h>m", function() require("harpoon.ui").toggle_quick_menu() end,
+  { desc = "Harpoon Quick Menu" })
+
+vim.keymap.set("n", "<leader><S-h>a", function() require("harpoon.mark").add_file() end, { desc = "Harpoon add file" })
