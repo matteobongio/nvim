@@ -91,3 +91,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- keep copy when replacing
 vim.keymap.set("x", "<leader>p", [["_dP]], {desc = "replace without changing clipboard"})
 vim.keymap.set({"n", "v"}, "<leader>dd", [["_d]], {desc = "delete without yank"})
+
+-- keymap guide
+vim.keymap.set("n", "<leader>k", "<cmd>Telescope keymaps<CR>", {desc = "Telescope [K]eymaps"})
