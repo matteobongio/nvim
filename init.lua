@@ -72,11 +72,15 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {
-        text = {
-          spinner = "moon"
+      {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
+        opts = {
+          text = {
+            spinner = "moon"
+          }
         }
-      } },
+      },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -274,11 +278,6 @@ vim.defer_fn(function()
   }
 end, 0)
 
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
@@ -345,7 +344,7 @@ require('which-key').register({
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
+  clangd = {},
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
@@ -376,12 +375,14 @@ mason_lspconfig.setup {
 
 mason_lspconfig.setup_handlers {
   function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
+    if server_name ~= "rust_analyzer" then
+      require('lspconfig')[server_name].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers[server_name],
+        filetypes = (servers[server_name] or {}).filetypes,
+      }
+    end
   end
 }
 
