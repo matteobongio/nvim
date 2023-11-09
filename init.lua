@@ -174,10 +174,6 @@ require('lazy').setup({
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    config = function(_, opts)
-      require("telescope").setup(opts)
-      require("telescope").load_extension('cmdline')
-    end,
     dependencies = {
       'nvim-lua/plenary.nvim',
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -192,7 +188,18 @@ require('lazy').setup({
           return vim.fn.executable 'make' == 1
         end,
       },
-      'jonarrien/telescope-cmdline.nvim',
+      {
+        'jonarrien/telescope-cmdline.nvim',
+        config = function()
+          require("telescope").load_extension('cmdline')
+        end
+      },
+      {
+        "nvim-telescope/telescope-frecency.nvim",
+        config = function()
+          require("telescope").load_extension('frecency')
+        end,
+      }
     },
   },
 
