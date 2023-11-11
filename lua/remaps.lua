@@ -114,3 +114,6 @@ vim.keymap.set("n", "<leader><S-h>a", function() require("harpoon.mark").add_fil
 
 -- oil
 vim.keymap.set("n", "<leader>f", "<CMD>Oil<CR>", { desc = "File Explorer" })
+
+-- aerial
+vim.keymap.set("n", "<leader>m", "<cmd>AerialToggle!<CR>")
