@@ -117,3 +117,18 @@ vim.keymap.set("n", "<leader>f", "<CMD>Oil<CR>", { desc = "File Explorer" })
 
 -- aerial
 vim.keymap.set("n", "<leader>m", "<cmd>AerialToggle!<CR>")
+
+-- neorg
+vim.keymap.set("n", "<leader>nc", "<cmd>Neorg toggle-concealer<CR>", { desc = "Neorg concealer" })
+
+-- nabla
+
+vim.keymap.set("n", "<leader>np", function() require('nabla').popup() end, { desc = "Nabla Popup" })
+
+vim.keymap.set("n", "<leader>ne", function()
+  require "nabla".enable_virt({
+    autogen = true, -- auto-regenerate ASCII art when exiting insert mode
+    silent = true,  -- silents error messages
+  })
+end, { desc = "Nabla enable" })
+vim.keymap.set("n", "<leader>nd", function() require('nabla').disable_virt() end, { desc = "Nabla disable" })
