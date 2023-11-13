@@ -354,6 +354,8 @@ require('which-key').register({
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
   ['<leader>n'] = { name = 'Neorg/Nabla', _ = 'which_key_ignore' },
+  ['<leader>nt'] = { name = 'telescope', _ = 'which_key_ignore' },
+  ['<leader>nm'] = { name = 'Metadata', _ = 'which_key_ignore' },
 })
 
 -- Enable the following language servers
@@ -452,6 +454,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = "neorg" },
   },
 }
 require("config")

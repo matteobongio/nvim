@@ -121,6 +121,24 @@ vim.keymap.set("n", "<leader>m", "<cmd>AerialToggle!<CR>")
 -- neorg
 vim.keymap.set("n", "<leader>nc", "<cmd>Neorg toggle-concealer<CR>", { desc = "Neorg concealer" })
 
+vim.keymap.set("n", "<leader>ntt", "<cmd>Neorg tangle current-file<CR>", { desc = "Neorg Tangle" })
+
+vim.keymap.set("n", "<leader>nC", "<cmd>Neorg keybind all core.looking-glass.magnify-code-block<CR>",
+  { desc = "Neorg open Code block" })
+
+vim.keymap.set("n", "<leader>ns", "<cmd>Neorg generate-workspace-summary<CR>", { desc = "Neorg generate workspace Summary" })
+
+vim.keymap.set("n", "<leader>nmi", "<cmd>Neorg inject-metadata<CR>", { desc = "Neorg metadata inject" })
+
+vim.keymap.set("n", "<leader>nmu", "<cmd>Neorg update-metadata<CR>", { desc = "Neorg metadata update" })
+
+-- neorg -- telescope
+vim.keymap.set("n", "<leader>ntf", "<cmd>Telescope neorg insert_file_link<CR>", { desc = "Neorg telescope insert file link" })
+
+vim.keymap.set("n", "<leader>ntl", "<cmd>Telescope neorg insert_link<CR>", { desc = "Neorg telescope insert link" })
+
+vim.keymap.set("n", "<leader>nth", "<cmd>Telescope neorg search_headings<CR>", { desc = "Neorg telescope search Headings" })
+
 -- nabla
 
 vim.keymap.set("n", "<leader>np", function() require('nabla').popup() end, { desc = "Nabla Popup" })
