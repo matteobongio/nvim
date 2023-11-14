@@ -119,7 +119,13 @@ vim.keymap.set("n", "<leader>f", "<CMD>Oil<CR>", { desc = "File Explorer" })
 vim.keymap.set("n", "<leader>m", "<cmd>AerialToggle!<CR>")
 
 -- neorg
-vim.keymap.set("n", "<leader>nc", "<cmd>Neorg toggle-concealer<CR>", { desc = "Neorg concealer" })
+vim.keymap.set("n", "<leader>nct", "<cmd>Neorg toggle-concealer<CR>", { desc = "Neorg concealer" })
+
+vim.keymap.set("n", "<leader>ncs0", "<cmd>set conceallevel=0<CR>", { desc = "Neorg concealer level set 0" })
+
+vim.keymap.set("n", "<leader>ncs1", "<cmd>set conceallevel=1<CR>", { desc = "Neorg concealer level set 1" })
+
+vim.keymap.set("n", "<leader>ncs2", "<cmd>set conceallevel=2<CR>", { desc = "Neorg concealer level set 1" })
 
 vim.keymap.set("n", "<leader>ntt", "<cmd>Neorg tangle current-file<CR>", { desc = "Neorg Tangle" })
 

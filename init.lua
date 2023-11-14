@@ -354,8 +354,10 @@ require('which-key').register({
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
   ['<leader>n'] = { name = 'Neorg/Nabla', _ = 'which_key_ignore' },
-  ['<leader>nt'] = { name = 'telescope', _ = 'which_key_ignore' },
+  ['<leader>nt'] = { name = 'Telescope', _ = 'which_key_ignore' },
   ['<leader>nm'] = { name = 'Metadata', _ = 'which_key_ignore' },
+  ['<leader>nc'] = { name = 'Soncealer', _ = 'which_key_ignore' },
+  ['<leader>ncs'] = { name = 'Set', _ = 'which_key_ignore' },
 })
 
 -- Enable the following language servers
