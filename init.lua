@@ -212,6 +212,10 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+
+
+  { "hrsh7th/cmp-path" },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -225,6 +229,7 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   { import = 'plugins' },
+  { import = 'plugins.ADHD' },
 }, {})
 
 
@@ -457,6 +462,13 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = "neorg" },
+    {
+      name = 'path',
+      option = {
+        -- Options go into this table
+        trailing_slash = true
+      },
+    },
   },
 }
 require("config")
