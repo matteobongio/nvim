@@ -16,6 +16,7 @@ local onedark = {
     vim.cmd.colorscheme 'onedark'
   end,
 }
+
 local catp = {
   "catppuccin/nvim",
   name = "catppuccin",
@@ -25,4 +26,25 @@ local catp = {
   end,
 }
 
-return catp
+-- lualine theme = 'dracula-nvim'
+local dracula = {
+  "Mofiqul/dracula.nvim",
+  -- name = "dracula",
+  -- priority = 1000,
+  config = function()
+    vim.cmd.colorscheme 'dracula'
+  end,
+}
+
+local rosepine = {
+  "rose-pine/neovim",
+  opts = {
+    name = "rose-pine",
+    -- priority = 1000,
+    variant = 'moon',
+  },
+  config = function()
+    vim.cmd.colorscheme 'rose-pine'
+  end,
+}
+return tokyo

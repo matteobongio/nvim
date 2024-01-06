@@ -20,6 +20,9 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+
+    -- telescope functionality
+    'nvim-telescope/telescope-dap.nvim'
   },
   config = function()
     local dap = require 'dap'
@@ -80,6 +83,13 @@ return {
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
+
+    -- telescope config
+
+    vim.keymap.set('n', '<leader>tb', require 'telescope'.extensions.dap.list_breakpoints {},
+      { desc = 'telescope list breakpoints' })
+    vim.keymap.set('n', '<leader>tv', require 'telescope'.extensions.dap.variables {},
+      { desc = 'telescope list variables' })
 
     -- Install golang specific config
     require('dap-go').setup()
