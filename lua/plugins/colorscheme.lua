@@ -3,7 +3,7 @@ local tokyo = {
   "folke/tokyonight.nvim",
   lazy = false,
   priority = 1000,
-  config = function ()
+  config = function()
     vim.cmd.colorscheme 'tokyonight-moon'
   end
 }
@@ -42,9 +42,26 @@ local rosepine = {
     name = "rose-pine",
     -- priority = 1000,
     variant = 'moon',
+    dark_variant = "moon",
+
   },
   config = function()
     vim.cmd.colorscheme 'rose-pine'
   end,
 }
-return tokyo
+
+local gruv = {
+  "ellisonleao/gruvbox.nvim",
+  priority = 1000,
+  config = function()
+    require('gruvbox').setup({
+      contrast = "hard",
+      overrides = {
+        SignColumn = { bg = "#1d2021" }
+      }
+    })
+    vim.cmd.colorscheme 'gruvbox'
+  end,
+}
+
+return gruv -- rosepine -- tokyo
