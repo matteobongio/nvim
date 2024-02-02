@@ -212,7 +212,10 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-
+  -- color parenthesis
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+  },
 
   { "hrsh7th/cmp-path" },
 
