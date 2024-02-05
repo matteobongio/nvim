@@ -100,11 +100,23 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
+      {
+        'L3MON4D3/LuaSnip',
+        build = (function()
+          -- Build Step is needed for regex support in snippets
+          -- This step is not supported in many windows environments
+          -- Remove the below condition to re-enable on windows
+          if vim.fn.has 'win32' == 1 then
+            return
+          end
+          return 'make install_jsregexp'
+        end)(),
+      },
       'saadparwaiz1/cmp_luasnip',
 
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
@@ -151,7 +163,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'gruvbox_dark', -- 'rose-pine', -- 'tokyonight',
+        theme = 'auto', -- 'gruvbox_dark', -- 'rose-pine', -- 'tokyonight',
         component_separators = '|',
         section_separators = '',
       },
@@ -217,8 +229,6 @@ require('lazy').setup({
     "HiPhish/rainbow-delimiters.nvim",
   },
 
-  { "hrsh7th/cmp-path" },
-
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -233,6 +243,7 @@ require('lazy').setup({
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   { import = 'plugins' },
   { import = 'plugins.ADHD' },
+  { import = 'plugins.OTHER' },
 }, {})
 
 
@@ -371,6 +382,14 @@ require('which-key').register({
   ['<leader>nc'] = { name = 'Soncealer', _ = 'which_key_ignore' },
   ['<leader>ncs'] = { name = 'Set', _ = 'which_key_ignore' },
 })
+
+
+-- TODO: Double Check!!
+--
+-- mason-lspconfig requires that these setup functions are called in this order
+-- before setting up the servers.
+require('mason').setup()
+require('mason-lspconfig').setup()
 
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
