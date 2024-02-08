@@ -64,4 +64,4 @@ local gruv = {
   end,
 }
 
-return gruv -- rosepine -- tokyo
+return tokyo

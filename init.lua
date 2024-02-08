@@ -211,6 +211,13 @@ require('lazy').setup({
         config = function()
           require("telescope").load_extension('frecency')
         end,
+      },
+      {
+        'zane-/cder.nvim',
+        config = function ()
+          require('telescope').load_extension('cder')
+        end
+
       }
     },
   },

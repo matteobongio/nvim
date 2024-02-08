@@ -50,6 +50,7 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+vim.keymap.set('n', '<leader>gt', '<cmd>Telescope cder<cr>', { desc = '[G]o [T]o' })
 
 -- Telescope cmdline
 vim.keymap.set('n', '<leader>:', '<cmd>Telescope cmdline<cr>', { desc = 'Cmdline' })
@@ -118,11 +119,11 @@ vim.keymap.set("n", "<leader>m", "<cmd>AerialToggle!<CR>")
 -- neorg
 vim.keymap.set("n", "<leader>nct", "<cmd>Neorg toggle-concealer<CR>", { desc = "Neorg concealer" })
 
-vim.keymap.set("n", "<leader>ncs0", "<cmd>set conceallevel=0<CR>", { desc = "Neorg concealer level set 0" })
-
-vim.keymap.set("n", "<leader>ncs1", "<cmd>set conceallevel=1<CR>", { desc = "Neorg concealer level set 1" })
-
-vim.keymap.set("n", "<leader>ncs2", "<cmd>set conceallevel=2<CR>", { desc = "Neorg concealer level set 1" })
+-- vim.keymap.set("n", "<leader>ncs0", "<cmd>set conceallevel=0<CR>", { desc = "Neorg concealer level set 0" })
+--
+-- vim.keymap.set("n", "<leader>ncs1", "<cmd>set conceallevel=1<CR>", { desc = "Neorg concealer level set 1" })
+--
+-- vim.keymap.set("n", "<leader>ncs2", "<cmd>set conceallevel=2<CR>", { desc = "Neorg concealer level set 1" })
 
 vim.keymap.set("n", "<leader>ntt", "<cmd>Neorg tangle current-file<CR>", { desc = "Neorg Tangle" })
 
