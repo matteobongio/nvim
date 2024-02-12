@@ -162,12 +162,13 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'auto', -- 'gruvbox_dark', -- 'rose-pine', -- 'tokyonight',
         component_separators = '|',
-        section_separators = '',
+        section_separators = { left = '', right = '' },
       },
     },
+    -- TODO: add  icon to statusline
   },
 
   {
