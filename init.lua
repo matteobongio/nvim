@@ -167,8 +167,25 @@ require('lazy').setup({
         component_separators = '|',
         section_separators = { left = '', right = '' },
       },
+      sections = {
+        lualine_a = {
+          {
+            function()
+              return ''
+            end,
+            separator = ''
+          },
+          {
+            'mode',
+            separator = { left = "", right = " " }
+          }
+        },
+      }
     },
-    -- TODO: add  icon to statusline
+    --  default = { left = "", right = " " },
+    -- round = { left = "", right = "" },
+    -- block = { left = "█", right = "█" },
+    -- arrow = { left = "", right = "" },
   },
 
   {
@@ -215,7 +232,7 @@ require('lazy').setup({
       },
       {
         'zane-/cder.nvim',
-        config = function ()
+        config = function()
           require('telescope').load_extension('cder')
         end
 
