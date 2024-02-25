@@ -467,10 +467,18 @@ mason_lspconfig.setup_handlers {
   end
 }
 
+
+vim.g.rustaceanvim = {
+  server = {
+    on_attach = on_attach,
+  },
+}
+
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+require('luasnip.loaders.from_vscode').lazy_load { paths = { "~/.config/nvim/snips/" } }
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
@@ -521,6 +529,7 @@ cmp.setup {
       },
     },
   },
+  experimental = { ghost_text = true },
 }
 require("config")
 require("remaps")

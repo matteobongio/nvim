@@ -53,6 +53,8 @@ vim.opt.splitright = true
 
 vim.opt.scrolloff = 8
 
+vim.opt.wrap = false
+
 -- If the current system shell or the `shell` option is set to /usr/bin/fish then revert to sh
 if os.getenv('SHELL') == "/usr/bin/fish" or vim.opt.shell == "/usr/bin/fish" then
     vim.opt.shell = "/bin/sh"
