@@ -6,7 +6,9 @@ return {
       group = vim.api.nvim_create_augroup("lazyvim_vimtex_conceal", { clear = true }),
       pattern = { "bib", "tex" },
       callback = function()
-        vim.wo.conceallevel = 2
+        vim.wo.conceallevel = 0
+        -- vim.b.minipairs_disable = true
+        -- require(MiniPairs).unmap_buf()
       end,
     })
 
@@ -24,6 +26,13 @@ return {
         t("\\lvert "),
         i(1, "  "),
         t(" \\rvert"),
+      })
+    })
+    require("luasnip").add_snippets("tex", {
+      s("Vert", {
+        t("\\lVert "),
+        i(1, "  "),
+        t(" \\rVert"),
       })
     })
   end,
