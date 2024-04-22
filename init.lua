@@ -236,7 +236,15 @@ require('lazy').setup({
           require('telescope').load_extension('cder')
         end
 
+      },
+      {
+        'andrew-george/telescope-themes',
+        config = function()
+          require('telescope').load_extension('themes')
+        end
+
       }
+
     },
   },
 
@@ -268,7 +276,7 @@ require('lazy').setup({
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   { import = 'plugins' },
   { import = 'plugins.ADHD' },
-  { import = 'plugins.OTHER' },
+  -- { import = 'plugins.OTHER' },
 }, {})
 
 
@@ -378,6 +386,13 @@ local on_attach = function(_, bufnr)
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
+  
+  -- inline hints UNSTABLE
+  vim.lsp.inlay_hint.enable(bufnr, true)
+  -- print(vim.lsp.inlay_hint.is_enabled())
+  -- nmap('<leader>ch' ,vim.lsp.inlay_hint.enable(bufnr, not vim.lsp.inlay_hint.is_enabled()), 'toggle inline hints')
+
+
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
   nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
@@ -470,7 +485,9 @@ mason_lspconfig.setup_handlers {
 
 vim.g.rustaceanvim = {
   server = {
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+    end,
   },
 }
 
@@ -478,7 +495,6 @@ vim.g.rustaceanvim = {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
-require('luasnip.loaders.from_vscode').lazy_load { paths = { "~/.config/nvim/snips/" } }
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
