@@ -386,11 +386,10 @@ local on_attach = function(_, bufnr)
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
-  
-  -- inline hints UNSTABLE
-  vim.lsp.inlay_hint.enable(bufnr, true)
+
+  vim.lsp.inlay_hint.enable(true)
   -- print(vim.lsp.inlay_hint.is_enabled())
-  -- nmap('<leader>ch' ,vim.lsp.inlay_hint.enable(bufnr, not vim.lsp.inlay_hint.is_enabled()), 'toggle inline hints')
+  -- nmap('<leader>ch' ,vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()), 'toggle inline hints')
 
 
   -- Lesser used LSP functionality
