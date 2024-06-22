@@ -439,19 +439,20 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  clangd = {},
+  clangd = {
+  },
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
+  -- lua_ls = {
+  --   Lua = {
+  --     workspace = { checkThirdParty = false },
+  --     telemetry = { enable = false },
+  --   },
+  -- },
 }
 
 -- Setup neovim lua configuration
@@ -461,25 +462,51 @@ require('neodev').setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
 
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
 
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    if server_name ~= "rust_analyzer" then
-      require('lspconfig')[server_name].setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = servers[server_name],
-        filetypes = (servers[server_name] or {}).filetypes,
-      }
+-- Get system information
+local system_name = vim.loop.os_uname().sysname
+
+if system_name == 'Linux' then
+  local file = io.open('/etc/os-release', 'r')
+  if file then
+    local content = file:read '*all'
+    file:close()
+    if string.find(content, 'ID=nixos') then
+      vim.g.system_id = 'nixos'
     end
   end
-}
+end
+
+if vim.g.system_id == 'nixos' then
+  ensure_installed = vim.tbl_keys(servers)
+  for _, server_name in pairs(ensure_installed) do
+    require('lspconfig')[server_name].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = servers[server_name],
+      filetypes = (servers[server_name] or {}).filetypes,
+    }
+  end
+else
+  -- Ensure the servers above are installed
+  local mason_lspconfig = require 'mason-lspconfig'
+  mason_lspconfig.setup {
+    ensure_installed = vim.tbl_keys(servers),
+  }
+  mason_lspconfig.setup_handlers {
+    function(server_name)
+      if server_name ~= "rust_analyzer" then
+        require('lspconfig')[server_name].setup {
+          capabilities = capabilities,
+          on_attach = on_attach,
+          settings = servers[server_name],
+          filetypes = (servers[server_name] or {}).filetypes,
+        }
+      end
+    end
+  }
+end
 
 
 vim.g.rustaceanvim = {
