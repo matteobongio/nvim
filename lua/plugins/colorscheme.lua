@@ -71,4 +71,4 @@ local kanagawa = {
   end,
 }
 
-return gruv
+return kanagawa
