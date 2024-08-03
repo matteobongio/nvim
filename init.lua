@@ -441,18 +441,20 @@ require('mason-lspconfig').setup()
 local servers = {
   clangd = {
   },
-  -- gopls = {},
+  gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
+  rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
-  -- lua_ls = {
-  --   Lua = {
-  --     workspace = { checkThirdParty = false },
-  --     telemetry = { enable = false },
-  --   },
-  -- },
+  lua_ls = {
+    Lua = {
+      workspace = { checkThirdParty = false },
+      telemetry = { enable = false },
+    },
+  },
+  tinymist = {},
+  nil_ls = {},
 }
 
 -- Setup neovim lua configuration
@@ -479,7 +481,7 @@ if system_name == 'Linux' then
 end
 
 if vim.g.system_id == 'nixos' then
-  ensure_installed = vim.tbl_keys(servers)
+  local ensure_installed = vim.tbl_keys(servers)
   for _, server_name in pairs(ensure_installed) do
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
