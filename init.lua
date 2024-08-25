@@ -407,21 +407,47 @@ local on_attach = function(_, bufnr)
 end
 
 -- document existing key chains
-require('which-key').register({
-  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-  ['<leader>n'] = { name = 'Neorg/Nabla', _ = 'which_key_ignore' },
-  ['<leader>nt'] = { name = 'Telescope', _ = 'which_key_ignore' },
-  ['<leader>nm'] = { name = 'Metadata', _ = 'which_key_ignore' },
-  ['<leader>nc'] = { name = 'Soncealer', _ = 'which_key_ignore' },
-  ['<leader>ncs'] = { name = 'Set', _ = 'which_key_ignore' },
-})
+-- require('which-key').register({
+--   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+--   ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+--   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+--   ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
+--   ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+--   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+--   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+--   ['<leader>n'] = { name = 'Neorg/Nabla', _ = 'which_key_ignore' },
+--   ['<leader>nt'] = { name = 'Telescope', _ = 'which_key_ignore' },
+--   ['<leader>nm'] = { name = 'Metadata', _ = 'which_key_ignore' },
+--   ['<leader>nc'] = { name = 'Soncealer', _ = 'which_key_ignore' },
+--   ['<leader>ncs'] = { name = 'Set', _ = 'which_key_ignore' },
+-- })
 
+require('which-key').add({
+    { "<leader>c", group = "[C]ode" },
+    { "<leader>c_", hidden = true },
+    { "<leader>d", group = "[D]ocument" },
+    { "<leader>d_", hidden = true },
+    { "<leader>g", group = "[G]it" },
+    { "<leader>g_", hidden = true },
+    { "<leader>h", group = "More git" },
+    { "<leader>h_", hidden = true },
+    { "<leader>n", group = "Neorg/Nabla" },
+    { "<leader>n_", hidden = true },
+    { "<leader>nc", group = "Soncealer" },
+    { "<leader>nc_", hidden = true },
+    { "<leader>ncs", group = "Set" },
+    { "<leader>ncs_", hidden = true },
+    { "<leader>nm", group = "Metadata" },
+    { "<leader>nm_", hidden = true },
+    { "<leader>nt", group = "Telescope" },
+    { "<leader>nt_", hidden = true },
+    { "<leader>r", group = "[R]ename" },
+    { "<leader>r_", hidden = true },
+    { "<leader>s", group = "[S]earch" },
+    { "<leader>s_", hidden = true },
+    { "<leader>w", group = "[W]orkspace" },
+    { "<leader>w_", hidden = true },
+})
 
 -- TODO: Double Check!!
 --
