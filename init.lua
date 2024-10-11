@@ -481,6 +481,7 @@ local servers = {
   },
   tinymist = {},
   nil_ls = {},
+  jdtls = {},
 }
 
 -- Setup neovim lua configuration
