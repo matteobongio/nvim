@@ -77,11 +77,6 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
-
-vim.keymap.set('n', '<leader>u', require('undotree').toggle, { noremap = true, silent = true, desc = 'Toggle UndoTree' })
--- use oil instead
--- vim.keymap.set('n', '<leader>f', "<cmd>Ex<cr><esc>", { desc = 'Open File Manager' })
-
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 vim.keymap.set("n", "<C-z>", "<CMD>Format<CR>", { desc = "Format Document" })
 
@@ -102,13 +97,6 @@ vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]], { desc = "delete without yan
 
 -- keymap guide
 vim.keymap.set("n", "<leader>k", "<cmd>Telescope keymaps<CR>", { desc = "Telescope [K]eymaps" })
-
--- harpoon
--- from the quickmenu, open a file in: a vertical split with control+v, a horizontal split with control+x, a new tab with control+t
-vim.keymap.set("n", "<leader><S-h>m", function() require("harpoon.ui").toggle_quick_menu() end,
-  { desc = "Harpoon Quick Menu" })
-
-vim.keymap.set("n", "<leader><S-h>a", function() require("harpoon.mark").add_file() end, { desc = "Harpoon add file" })
 
 -- oil
 vim.keymap.set("n", "<leader>f", "<CMD>Oil<CR>", { desc = "File Explorer" })

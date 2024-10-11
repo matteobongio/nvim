@@ -20,7 +20,8 @@ return {
     },
   },
   --config = true,
-  -- keys = { -- load the plugin only when using it's keybinding:
-  --   { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
-  -- },
+  lazy = true,
+  keys = { -- load the plugin only when using it's keybinding:
+    { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>",  noremap = true, silent = true, desc = 'Toggle UndoTree'  },
+  },
 }
