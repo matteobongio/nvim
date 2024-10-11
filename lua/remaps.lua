@@ -131,18 +131,6 @@ vim.keymap.set("n", "<leader>ntl", "<cmd>Telescope neorg insert_link<CR>", { des
 
 vim.keymap.set("n", "<leader>nth", "<cmd>Telescope neorg search_headings<CR>", { desc = "Neorg telescope search Headings" })
 
--- nabla
-
-vim.keymap.set("n", "<leader>np", function() require('nabla').popup() end, { desc = "Nabla Popup" })
-
-vim.keymap.set("n", "<leader>ne", function()
-  require "nabla".enable_virt({
-    autogen = true, -- auto-regenerate ASCII art when exiting insert mode
-    silent = true,  -- silents error messages
-  })
-end, { desc = "Nabla enable" })
-vim.keymap.set("n", "<leader>nd", function() require('nabla').disable_virt() end, { desc = "Nabla disable" })
-
 vim.keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
     desc = "Toggle Spectre"
 })
