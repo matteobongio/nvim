@@ -1,6 +1,6 @@
 return {
   "xiyaowong/transparent.nvim",
-  -- config = function ()
-  --   require('transparent').clear_prefix('lualine')
-  -- end
+  config = function ()
+    require('transparent').clear_prefix('GitSigns')
+  end
 }
