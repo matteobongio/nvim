@@ -101,9 +101,6 @@ vim.keymap.set("n", "<leader>k", "<cmd>Telescope keymaps<CR>", { desc = "Telesco
 -- oil
 vim.keymap.set("n", "<leader>f", "<CMD>Oil<CR>", { desc = "File Explorer" })
 
--- aerial
-vim.keymap.set("n", "<leader>m", "<cmd>AerialToggle!<CR>")
-
 -- neorg
 vim.keymap.set("n", "<leader>nct", "<cmd>Neorg toggle-concealer<CR>", { desc = "Neorg concealer" })
 

@@ -80,4 +80,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons"
   },
+  lazy = true,
+  keys = {
+    { "<leader>m", "<cmd>AerialToggle!<CR>", desc = "AerialToggle" }
+  }
 }
