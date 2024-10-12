@@ -406,6 +406,8 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
+vim.g.LSP_on_attach = on_attach
+
 -- document existing key chains
 -- require('which-key').register({
 --   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
@@ -537,14 +539,6 @@ else
   }
 end
 
-
-vim.g.rustaceanvim = {
-  server = {
-    on_attach = function(client, bufnr)
-      on_attach(client, bufnr)
-    end,
-  },
-}
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
