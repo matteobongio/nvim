@@ -469,8 +469,7 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  clangd = {
-  },
+  clangd = {},
   gopls = {},
   -- pyright = {},
   rust_analyzer = {},
@@ -494,8 +493,6 @@ require('neodev').setup()
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-
 
 -- Get system information
 local system_name = vim.loop.os_uname().sysname
@@ -540,7 +537,6 @@ else
     end
   }
 end
-
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
@@ -598,6 +594,7 @@ cmp.setup {
   },
   experimental = { ghost_text = true },
 }
+
 require("config")
 require("remaps")
 -- The line beneath this is called `modeline`. See `:help modeline`
