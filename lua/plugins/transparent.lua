@@ -1,6 +1,7 @@
 return {
   "xiyaowong/transparent.nvim",
-  config = function ()
+  config = function()
     require('transparent').clear_prefix('GitSigns')
-  end
+  end,
+  keys = { { "<leader>tt", "<cmd>TransparentToggle<CR>", desc = "[T]ransparent [T]oggle" } }
 }
