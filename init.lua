@@ -32,7 +32,7 @@ vim.g.maplocalleader = ' '
 -- Put anything you want to happen only in Neovide here
 if vim.g.neovide then
   vim.g.neovide_scale_factor = 0.8
-  vim.g.neovide_transparency = 0.5
+  vim.g.neovide_transparency = 0.8
   vim.o.guifont = "FiraCode Nerd Font Mono"
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_cursor_animation_length = 0.1
