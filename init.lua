@@ -278,6 +278,7 @@ require('lazy').setup({
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   { import = 'plugins' },
   { import = 'plugins.ADHD' },
+  { import = 'plugins.DAP' },
   -- { import = 'plugins.OTHER' },
 }, {})
 
@@ -427,30 +428,30 @@ vim.g.LSP_on_attach = on_attach
 -- })
 
 require('which-key').add({
-    { "<leader>c", group = "[C]ode" },
-    { "<leader>c_", hidden = true },
-    { "<leader>d", group = "[D]ocument" },
-    { "<leader>d_", hidden = true },
-    { "<leader>g", group = "[G]it" },
-    { "<leader>g_", hidden = true },
-    { "<leader>h", group = "More git" },
-    { "<leader>h_", hidden = true },
-    { "<leader>n", group = "Neorg/Nabla" },
-    { "<leader>n_", hidden = true },
-    { "<leader>nc", group = "Soncealer" },
-    { "<leader>nc_", hidden = true },
-    { "<leader>ncs", group = "Set" },
-    { "<leader>ncs_", hidden = true },
-    { "<leader>nm", group = "Metadata" },
-    { "<leader>nm_", hidden = true },
-    { "<leader>nt", group = "Telescope" },
-    { "<leader>nt_", hidden = true },
-    { "<leader>r", group = "[R]ename" },
-    { "<leader>r_", hidden = true },
-    { "<leader>s", group = "[S]earch" },
-    { "<leader>s_", hidden = true },
-    { "<leader>w", group = "[W]orkspace" },
-    { "<leader>w_", hidden = true },
+  { "<leader>c",    group = "[C]ode" },
+  { "<leader>c_",   hidden = true },
+  { "<leader>d",    group = "[D]ocument" },
+  { "<leader>d_",   hidden = true },
+  { "<leader>g",    group = "[G]it" },
+  { "<leader>g_",   hidden = true },
+  { "<leader>h",    group = "More git" },
+  { "<leader>h_",   hidden = true },
+  { "<leader>n",    group = "Neorg/Nabla" },
+  { "<leader>n_",   hidden = true },
+  { "<leader>nc",   group = "Soncealer" },
+  { "<leader>nc_",  hidden = true },
+  { "<leader>ncs",  group = "Set" },
+  { "<leader>ncs_", hidden = true },
+  { "<leader>nm",   group = "Metadata" },
+  { "<leader>nm_",  hidden = true },
+  { "<leader>nt",   group = "Telescope" },
+  { "<leader>nt_",  hidden = true },
+  { "<leader>r",    group = "[R]ename" },
+  { "<leader>r_",   hidden = true },
+  { "<leader>s",    group = "[S]earch" },
+  { "<leader>s_",   hidden = true },
+  { "<leader>w",    group = "[W]orkspace" },
+  { "<leader>w_",   hidden = true },
 })
 
 -- TODO: Double Check!!
@@ -485,6 +486,7 @@ local servers = {
   tinymist = {},
   nil_ls = {},
   jdtls = {},
+  zls = {},
 }
 
 -- Setup neovim lua configuration
@@ -511,12 +513,14 @@ end
 if vim.g.system_id == 'nixos' then
   local ensure_installed = vim.tbl_keys(servers)
   for _, server_name in pairs(ensure_installed) do
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
+    if server_name ~= "rust_analyzer" then --rustaceanvim
+      require('lspconfig')[server_name].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers[server_name],
+        filetypes = (servers[server_name] or {}).filetypes,
+      }
+    end
   end
 else
   -- Ensure the servers above are installed
