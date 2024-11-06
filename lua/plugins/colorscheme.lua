@@ -71,4 +71,21 @@ local kanagawa = {
   end,
 }
 
-return kanagawa
+local neofusion = {
+  "diegoulloao/neofusion.nvim",
+  priority = 1000,
+  config = function()
+    vim.o.background = "dark"
+    vim.cmd([[ colorscheme neofusion ]])
+  end,
+  opts = ...
+}
+
+local nightfox = {
+  "EdenEast/nightfox.nvim",
+  config = function()
+    vim.cmd([[ colorscheme nightfox]])
+  end,
+}
+
+return nightfox
