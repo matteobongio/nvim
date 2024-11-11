@@ -513,7 +513,7 @@ end
 if vim.g.system_id == 'nixos' then
   local ensure_installed = vim.tbl_keys(servers)
   for _, server_name in pairs(ensure_installed) do
-    if server_name ~= "rust_analyzer" then --rustaceanvim
+    if server_name ~= "rust_analyzer" or server_name ~= "haskel_language_server" then --rustaceanvim
       require('lspconfig')[server_name].setup {
         capabilities = capabilities,
         on_attach = on_attach,
@@ -530,7 +530,7 @@ else
   }
   mason_lspconfig.setup_handlers {
     function(server_name)
-      if server_name ~= "rust_analyzer" then
+      if server_name ~= "rust_analyzer" or server_name ~= "haskel_language_server" then
         require('lspconfig')[server_name].setup {
           capabilities = capabilities,
           on_attach = on_attach,
