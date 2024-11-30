@@ -43,7 +43,9 @@ local rosepine = {
     -- priority = 1000,
     variant = 'moon',
     dark_variant = "moon",
-
+    styles = {
+      transparency = true
+    }
   },
   config = function()
     vim.cmd.colorscheme 'rose-pine'
@@ -71,21 +73,4 @@ local kanagawa = {
   end,
 }
 
-local neofusion = {
-  "diegoulloao/neofusion.nvim",
-  priority = 1000,
-  config = function()
-    vim.o.background = "dark"
-    vim.cmd([[ colorscheme neofusion ]])
-  end,
-  opts = ...
-}
-
-local nightfox = {
-  "EdenEast/nightfox.nvim",
-  config = function()
-    vim.cmd([[ colorscheme nightfox]])
-  end,
-}
-
-return nightfox
+return kanagawa
