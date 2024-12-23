@@ -487,6 +487,7 @@ local servers = {
   nil_ls = {},
   jdtls = {},
   zls = {},
+  vuels = {},
 }
 
 -- Setup neovim lua configuration
