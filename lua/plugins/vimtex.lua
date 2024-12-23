@@ -16,24 +16,24 @@ return {
     vim.g.vimtex_quickfix_method = vim.fn.executable("pplatex") == 1 and "pplatex" or "latexlog"
 
 
-    -- snipets
-    local ls = require("luasnip")
-    local s = ls.snippet
-    local t = ls.text_node
-    local i = ls.insert_node
-    require("luasnip").add_snippets("tex", {
-      s("vert", {
-        t("\\lvert "),
-        i(1, "  "),
-        t(" \\rvert"),
-      })
-    })
-    require("luasnip").add_snippets("tex", {
-      s("Vert", {
-        t("\\lVert "),
-        i(1, "  "),
-        t(" \\rVert"),
-      })
-    })
+    -- -- snipets
+    -- local ls = require("luasnip")
+    -- local s = ls.snippet
+    -- local t = ls.text_node
+    -- local i = ls.insert_node
+    -- require("luasnip").add_snippets("tex", {
+    --   s("vert", {
+    --     t("\\lvert "),
+    --     i(1, "  "),
+    --     t(" \\rvert"),
+    --   })
+    -- })
+    -- require("luasnip").add_snippets("tex", {
+    --   s("Vert", {
+    --     t("\\lVert "),
+    --     i(1, "  "),
+    --     t(" \\rVert"),
+    --   })
+    -- })
   end,
 }
