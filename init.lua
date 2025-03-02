@@ -235,6 +235,12 @@ require('lazy').setup({
     "HiPhish/rainbow-delimiters.nvim",
   },
 
+  {
+    "chrisgrieser/nvim-lsp-endhints",
+    event = "LspAttach",
+    opts = {}, -- required, even if empty
+  },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -360,6 +366,7 @@ local on_attach = function(_, bufnr)
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
+  -- nmap('<leader>z', vim.diagnostic.config({virtual_text=false}), 'Lsp shut up')
 
   vim.lsp.inlay_hint.enable(true)
   -- print(vim.lsp.inlay_hint.is_enabled())
@@ -441,13 +448,6 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  clangd = {},
-  gopls = {},
-  -- pyright = {},
-  rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -458,8 +458,51 @@ local servers = {
   nil_ls = {},
   jdtls = {},
   zls = {},
-  vuels = {},
+  bashls = {},
+  clangd = {},
+  gopls = {},
+  rust_analyzer = {},
+  basedpyright = {},
+  -- pyright = {},
+  -- tsserver = {},
+  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+
+  -- ts_ls = {},
+  --   init_options = {
+  --     plugins = {
+  --       {
+  --         name = "@vue/typescript-plugin",
+  --         location = "./node_modules/@vue/typescript-plugin",
+  --         languages = { "javascript", "typescript", "vue" },
+  --       },
+  --     },
+  --   },
+  --   filetypes = {
+  --     "javascript",
+  --     "typescript",
+  --     "vue",
+  --   },
+  -- },
+  -- volar = {
+  --   -- add filetypes for typescript, javascript and vue
+  --   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+  --   init_options = {
+  --     vue = {
+  --       -- disable hybrid mode
+  --       hybridMode = false,
+  --     },
+  --     typescript = {
+  --       -- TODO: fix this BS
+  --       tsdk = "/nix/store/g6ns6m42fvybfzb2xjppcsfmb6k0jv5x-typescript-5.6.3/lib/node_modules/typescript/lib/"
+  --     }
+  --   },
+  -- },
 }
+
+vim.api.nvim_create_autocmd(
+  { "BufRead", "BufNewFile" },
+  { pattern = { "*.py" }, command = ":lua vim.diagnostic.config({virtual_text=false})" }
+)
 
 -- Setup neovim lua configuration
 require('neodev').setup()
@@ -491,6 +534,7 @@ if vim.g.system_id == 'nixos' then
         on_attach = on_attach,
         settings = servers[server_name],
         filetypes = (servers[server_name] or {}).filetypes,
+        init_options = (servers[server_name] or {}).init_options,
       }
     end
   end
