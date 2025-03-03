@@ -96,32 +96,7 @@ vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]], { desc = "delete without yan
 -- keymap guide
 vim.keymap.set("n", "<leader>k", "<cmd>Telescope keymaps<CR>", { desc = "Telescope [K]eymaps" })
 
--- neorg
-vim.keymap.set("n", "<leader>nct", "<cmd>Neorg toggle-concealer<CR>", { desc = "Neorg concealer" })
-
--- vim.keymap.set("n", "<leader>ncs0", "<cmd>set conceallevel=0<CR>", { desc = "Neorg concealer level set 0" })
---
--- vim.keymap.set("n", "<leader>ncs1", "<cmd>set conceallevel=1<CR>", { desc = "Neorg concealer level set 1" })
---
--- vim.keymap.set("n", "<leader>ncs2", "<cmd>set conceallevel=2<CR>", { desc = "Neorg concealer level set 1" })
-
-vim.keymap.set("n", "<leader>ntt", "<cmd>Neorg tangle current-file<CR>", { desc = "Neorg Tangle" })
-
-vim.keymap.set("n", "<leader>nC", "<cmd>Neorg keybind all core.looking-glass.magnify-code-block<CR>",
-  { desc = "Neorg open Code block" })
-
-vim.keymap.set("n", "<leader>ns", "<cmd>Neorg generate-workspace-summary<CR>", { desc = "Neorg generate workspace Summary" })
-
-vim.keymap.set("n", "<leader>nmi", "<cmd>Neorg inject-metadata<CR>", { desc = "Neorg metadata inject" })
-
-vim.keymap.set("n", "<leader>nmu", "<cmd>Neorg update-metadata<CR>", { desc = "Neorg metadata update" })
-
--- neorg -- telescope
-vim.keymap.set("n", "<leader>ntf", "<cmd>Telescope neorg insert_file_link<CR>", { desc = "Neorg telescope insert file link" })
-
-vim.keymap.set("n", "<leader>ntl", "<cmd>Telescope neorg insert_link<CR>", { desc = "Neorg telescope insert link" })
-
-vim.keymap.set("n", "<leader>nth", "<cmd>Telescope neorg search_headings<CR>", { desc = "Neorg telescope search Headings" })
+-- telescope
 
 vim.keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
     desc = "Toggle Spectre"
