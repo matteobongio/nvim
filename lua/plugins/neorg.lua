@@ -17,7 +17,7 @@ return {
 
     { "<leader>nC",  "<cmd>Neorg keybind all core.looking-glass.magnify-code-block<CR>", desc = "Neorg open Code block" },
 
-    { "<leader>ns",  "<cmd>Neorg generate-workspace-summary<CR>",                        desc = "Neorg generate workspace Summary" }
+    { "<leader>ns",  "<cmd>Neorg generate-workspace-summary<CR>",                        desc = "Neorg generate workspace Summary" },
 
     { "<leader>nmi", "<cmd>Neorg inject-metadata<CR>",                                   desc = "Neorg metadata inject" },
 
@@ -26,7 +26,7 @@ return {
     { "<leader>ntf", "<cmd>Telescope neorg insert_file_link<CR>",                        desc = "Neorg telescope insert file link" },
 
     { "<leader>ntl", "<cmd>Telescope neorg insert_link<CR>",                             desc = "Neorg telescope insert link" },
-    { "<leader>nth", "<cmd>Telescope neorg search_headings<CR>",                         desc = "Neorg telescope search Headings" }
+    { "<leader>nth", "<cmd>Telescope neorg search_headings<CR>",                         desc = "Neorg telescope search Headings" },
 
   },
 }
