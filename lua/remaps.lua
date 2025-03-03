@@ -96,9 +96,6 @@ vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]], { desc = "delete without yan
 -- keymap guide
 vim.keymap.set("n", "<leader>k", "<cmd>Telescope keymaps<CR>", { desc = "Telescope [K]eymaps" })
 
--- oil
-vim.keymap.set("n", "<leader>f", "<CMD>Oil<CR>", { desc = "File Explorer" })
-
 -- neorg
 vim.keymap.set("n", "<leader>nct", "<cmd>Neorg toggle-concealer<CR>", { desc = "Neorg concealer" })
 
