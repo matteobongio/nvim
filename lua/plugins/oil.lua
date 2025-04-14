@@ -26,5 +26,6 @@ return {
   keys = {
     { "<leader>f", "<CMD>Oil<CR>", desc = "File Explorer" },
   },
+  lazy = false,
   dependencies = { "nvim-tree/nvim-web-devicons" },
 }
