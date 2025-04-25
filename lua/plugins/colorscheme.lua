@@ -76,11 +76,12 @@ local kanagawa = {
 local cyberdream = {
   "scottmckendry/cyberdream.nvim",
   lazy = false,
-  opts = {
-    variant = "dark",
-    transparent = true,
-  },
   config = function()
+    vim.o.background = 'dark'
+    require('cyberdream').setup({
+      transparent = true,
+      saturation = 0.8,
+    })
     vim.cmd.colorscheme 'cyberdream'
   end,
   priority = 1000,
