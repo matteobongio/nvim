@@ -73,4 +73,17 @@ local kanagawa = {
   end,
 }
 
-return kanagawa
+local cyberdream = {
+  "scottmckendry/cyberdream.nvim",
+  lazy = false,
+  opts = {
+    variant = "dark",
+    transparent = true,
+  },
+  config = function()
+    vim.cmd.colorscheme 'cyberdream'
+  end,
+  priority = 1000,
+}
+
+return cyberdream
