@@ -438,6 +438,17 @@ require('which-key').add({
 require('mason').setup()
 require('mason-lspconfig').setup()
 
+
+
+----- computer graphics
+local function get_jar_files()
+  local jar_dir = vim.fn.getcwd() .. "/jars"
+  local jars = vim.fn.glob(jar_dir .. "/*.jar", true, true)
+  return jars
+end
+-----
+
+
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 --
@@ -455,7 +466,15 @@ local servers = {
   },
   tinymist = {},
   nil_ls = {},
-  jdtls = {},
+  jdtls = {
+
+    java = {
+      project = {
+        referencedLibraries = get_jar_files(),   -- Dynamically include jars
+      },
+    },
+
+  },
   zls = {},
   bashls = {},
   clangd = {},
