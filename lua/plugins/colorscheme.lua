@@ -80,7 +80,7 @@ local cyberdream = {
     vim.o.background = 'dark'
     require('cyberdream').setup({
       transparent = true,
-      saturation = 0.8,
+      saturation = 0.7,
     })
     vim.cmd.colorscheme 'cyberdream'
   end,
