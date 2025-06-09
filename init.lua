@@ -442,7 +442,8 @@ require('mason-lspconfig').setup()
 
 ----- computer graphics
 local function get_jar_files()
-  local jar_dir = vim.fn.getcwd() .. "/jars"
+  -- local jar_dir = vim.fn.getcwd() .. "/jars"
+  local jar_dir = "/home/matteob/Code/uni/ICGV-assignments/assignment4_templates"
   local jars = vim.fn.glob(jar_dir .. "/*.jar", true, true)
   return jars
 end
@@ -547,7 +548,7 @@ end
 if vim.g.system_id == 'nixos' then
   local ensure_installed = vim.tbl_keys(servers)
   for _, server_name in pairs(ensure_installed) do
-    if server_name ~= "rust_analyzer" and server_name ~= "haskel_language_server" then --rustaceanvim
+    if  server_name ~= "haskel_language_server" then --rustaceanvim  server_name ~= "rust_analyzer" and
       require('lspconfig')[server_name].setup {
         capabilities = capabilities,
         on_attach = on_attach,

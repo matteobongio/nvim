@@ -1,15 +1,16 @@
-return {
-  'mrcjkb/rustaceanvim',
-  version = '^6', -- Recommended
-  lazy = false,
-  -- ft = { 'rust' },
-  -- init = function()
-  --   vim.g.rustaceanvim = {
-  --     server = {
-  --       on_attach = function(client, bufnr)
-  --         vim.g.LSP_on_attach(client, bufnr)
-  --       end,
-  --     },
-  --   }
-  -- end
-}
+return {}
+-- return {
+--   'mrcjkb/rustaceanvim',
+--   version = '^6', -- Recommended
+--   lazy = false,
+--   -- ft = { 'rust' },
+--   -- init = function()
+--   --   vim.g.rustaceanvim = {
+--   --     server = {
+--   --       on_attach = function(client, bufnr)
+--   --         vim.g.LSP_on_attach(client, bufnr)
+--   --       end,
+--   --     },
+--   --   }
+--   -- end
+-- }
